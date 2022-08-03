@@ -14,6 +14,7 @@
   },
   "scripts": {
     "build:cjs": "rollup ./src/your-function.js --file ./cjs/your-function.cjs --format cjs -m",
+    "lint": "eslint ./src/*",
     "test": "ava"
   },
   "repository": {

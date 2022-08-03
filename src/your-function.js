@@ -33,6 +33,6 @@ const yourFunction = (options={}) => {
             }
         }
     };
-}
+};
 
 export { yourFunction };

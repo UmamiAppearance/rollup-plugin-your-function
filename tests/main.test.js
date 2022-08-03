@@ -1,5 +1,5 @@
 import test from "ava";
-import { rollup } from "rollup";;
+import { rollup } from "rollup";
 import { yourFunction } from "../src/your-function.js";
 
 
