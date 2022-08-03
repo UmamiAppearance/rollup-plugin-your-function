@@ -133,6 +133,14 @@ const showDiff = (filename, source, code, diffOption) => {
     console.log(colorette.gray("<<< END\n"));
 };
 
+/**
+ * [rollup-plugin-your-function]{@link https://github.com/UmamiAppearance/rollup-plugin-yor-function}
+ *
+ * @version 0.1.1
+ * @author UmamiAppearance [mail@umamiappearance.eu]
+ * @license MIT
+ */
+
 const yourFunction = (options={}) => {
 
     if (!options.fn) {
