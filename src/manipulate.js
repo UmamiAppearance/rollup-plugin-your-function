@@ -1,5 +1,6 @@
 import { createFilter } from "@rollup/pluginutils";
 import MagicString from "magic-string";
+import showDiff from "./diff.js";
 
 const manipulate = (options={}) => {
 
@@ -16,6 +17,10 @@ const manipulate = (options={}) => {
             if (filter(id)) {
                 
                 const code = options.fn(source);
+
+                if ("showDiff" in options && code !== source) {
+                    showDiff(id, source, code, options.showDiff);
+                }
                 
                 let map;
 

@@ -36,6 +36,8 @@
   "homepage": "https://github.com/UmamiAppearance/rollup-plugin-manipulate#readme",
   "dependencies": {
     "@rollup/pluginutils": "^4.2.1",
+    "colorette": "^2.0.19",
+    "diff": "^5.1.0",
     "magic-string": "^0.26.2"
   },
   "devDependencies": {
