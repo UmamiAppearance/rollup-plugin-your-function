@@ -10,7 +10,7 @@ There are many plugins for rollup available. And many times the only thing you w
 
 Eventually you will find what you need, but now you'll have to figure out the particularities of the plugin. And you find yourself thinking: _"Why was that so complicated? I could have done this to a regular file in seconds!"_.  
 
-This is where **rollup-plugin-your-function** comes into play. The _only!_ thing it does is to take a function, that you create by yourself. The function needs to take one argument, that is the source file, and must return the output code. And that's it.
+This is where **rollup-plugin-your-function** comes into play. The _only!_ thing it does, is to take a function, that you create by yourself. The function needs to take one argument, that is the source file, and must return the output code. And that's it.
 
 
 ## Install
@@ -20,12 +20,11 @@ npm install rollup-plugin-your-function --save-dev
 ```
 
 
-
 ## Usage
 Create a `rollup.config.js` [configuration file](https://www.rollupjs.org/guide/en/#configuration-files) and import the plugin.
 
 ```js
-import { importManager } from "rollup-plugin-your-function";
+import { yourFunction } from "rollup-plugin-your-function";
 
 export default {
     input: "src/index.js",
