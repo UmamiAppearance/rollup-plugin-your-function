@@ -10,7 +10,7 @@ There are many plugins for rollup available. And many times the only thing you w
 
 Eventually you will find what you need, but now you'll have to figure out the particularities of the plugin. And you find yourself thinking: _"Why was that so complicated? I could have done this to a regular file in seconds!"_.  
 
-This is where **rollup-plugin-your-function** comes into play. The _only!_ thing it does, is to take a function, that you create by yourself. The function needs to take one argument, that is the source file, and must return the output code. And that's it.
+This is where **rollup-plugin-your-function** comes into play. The _only!_ thing it does, is to take a function, that you create by yourself. Your function needs to take one argument, that is the source file, and must return the output code. And that's it.
 
 
 ## Install
@@ -83,4 +83,3 @@ A debugging method. If set to anything other than the string `"file"` a console 
 [MIT](https://opensource.org/licenses/MIT)
 
 Copyright (c) 2022, UmamiAppearance
-
