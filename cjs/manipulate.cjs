@@ -1,5 +1,13 @@
-import { createFilter } from "@rollup/pluginutils";
-import MagicString from "magic-string";
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+var pluginutils = require('@rollup/pluginutils');
+var MagicString = require('magic-string');
+
+function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+var MagicString__default = /*#__PURE__*/_interopDefaultLegacy(MagicString);
 
 const manipulate = (options={}) => {
     
@@ -13,7 +21,7 @@ const manipulate = (options={}) => {
         throw Error("A function must be specified");
     }
 
-    const filter = createFilter(options.include, options.exclude);
+    const filter = pluginutils.createFilter(options.include, options.exclude);
 
     return {
         name: "manipulate",
@@ -26,7 +34,7 @@ const manipulate = (options={}) => {
                 let map;
 
                 if (options.sourceMap !== false && options.sourcemap !== false) {
-                    const ms = new MagicString(code);
+                    const ms = new MagicString__default["default"](code);
                     map = ms.generateMap({ hires: true });
                 }
 
@@ -34,6 +42,7 @@ const manipulate = (options={}) => {
             }
         }
     };
-}
+};
 
-export { manipulate };
+exports.manipulate = manipulate;
+//# sourceMappingURL=manipulate.cjs.map

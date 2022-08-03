@@ -2,11 +2,14 @@
   "name": "rollup-plugin-manipulate",
   "version": "0.1.0",
   "description": "Manipulate",
-  "main": "./src/manipulate.js",
+  "main": "./cjs/manipulate.cjs",
+  "module": "./src/manipulate.js",
+  "type": "module",
   "directories": {
     "test": "test"
   },
   "scripts": {
+    "build:cjs": "rollup ./src/manipulate.js --file ./cjs/manipulate.cjs --format cjs -m",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,6 +28,7 @@
   },
   "devDependencies": {
     "ava": "^4.3.1",
-    "eslint": "^8.21.0"
+    "eslint": "^8.21.0",
+    "rollup": "^2.77.2"
   }
 }
