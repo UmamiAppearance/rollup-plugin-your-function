@@ -2,12 +2,6 @@ import { createFilter } from "@rollup/pluginutils";
 import MagicString from "magic-string";
 
 const manipulate = (options={}) => {
-    
-    /*
-    if (!opts.include) {
-        throw Error("include option must be specified");
-    }
-    */
 
     if (!options.fn) {
         throw Error("A function must be specified");

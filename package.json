@@ -18,6 +18,14 @@
   },
   "author": "UmamiAppearance",
   "license": "MIT",
+  "keywords": [
+    "change",
+    "manual",
+    "manipulate",
+    "modify",
+    "replace",
+    "rollup-plugin"
+  ],
   "bugs": {
     "url": "https://github.com/UmamiAppearance/rollup-plugin-manipulate/issues"
   },
