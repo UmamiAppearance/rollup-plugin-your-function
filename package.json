@@ -1,29 +1,30 @@
 {
-  "name": "rollup-plugin-manipulate",
+  "name": "rollup-plugin-your-function",
   "version": "0.1.0",
-  "description": "Manipulate",
-  "main": "./cjs/manipulate.cjs",
-  "module": "./src/manipulate.js",
+  "description": "Make your own function",
+  "main": "./cjs/your-function.cjs",
+  "module": "./src/your-function.js",
   "exports": {
-    "import": "./src/manipulate.js",
-    "require": "./cjs/manipulate.cjs"
+    "import": "./src/your-function.js",
+    "require": "./cjs/your-function.cjs"
   },
   "type": "module",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "build:cjs": "rollup ./src/manipulate.js --file ./cjs/manipulate.cjs --format cjs -m",
+    "build:cjs": "rollup ./src/your-function.js --file ./cjs/your-function.cjs --format cjs -m",
     "test": "ava"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/UmamiAppearance/rollup-plugin-manipulate.git"
+    "url": "git+https://github.com/UmamiAppearance/rollup-plugin-your-function.git"
   },
   "author": "UmamiAppearance",
   "license": "MIT",
   "keywords": [
     "change",
+    "function",
     "manual",
     "manipulate",
     "modify",
@@ -31,9 +32,9 @@
     "rollup-plugin"
   ],
   "bugs": {
-    "url": "https://github.com/UmamiAppearance/rollup-plugin-manipulate/issues"
+    "url": "https://github.com/UmamiAppearance/rollup-plugin-your-function/issues"
   },
-  "homepage": "https://github.com/UmamiAppearance/rollup-plugin-manipulate#readme",
+  "homepage": "https://github.com/UmamiAppearance/rollup-plugin-your-function#readme",
   "dependencies": {
     "@rollup/pluginutils": "^4.2.1",
     "colorette": "^2.0.19",
