@@ -10,7 +10,9 @@
   },
   "type": "module",
   "directories": {
-    "test": "test"
+    "cjs": "cjs",
+    "tests": "tests",
+    "src": "src"
   },
   "scripts": {
     "build:cjs": "rollup ./src/your-function.js --file ./cjs/your-function.cjs --format cjs -m",
