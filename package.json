@@ -1,0 +1,30 @@
+{
+  "name": "rollup-plugin-manipulate",
+  "version": "0.1.0",
+  "description": "Manipulate",
+  "main": "./src/manipulate.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UmamiAppearance/rollup-plugin-manipulate.git"
+  },
+  "author": "UmamiAppearance",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/UmamiAppearance/rollup-plugin-manipulate/issues"
+  },
+  "homepage": "https://github.com/UmamiAppearance/rollup-plugin-manipulate#readme",
+  "dependencies": {
+    "@rollup/pluginutils": "^4.2.1",
+    "magic-string": "^0.26.2"
+  },
+  "devDependencies": {
+    "ava": "^4.3.1",
+    "eslint": "^8.21.0"
+  }
+}
