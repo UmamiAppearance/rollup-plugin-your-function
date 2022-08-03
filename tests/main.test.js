@@ -1,6 +1,6 @@
 import test from "ava";
 import { rollup } from "rollup";;
-import { manipulate } from "../src/manipulate.js";
+import { yourFunction } from "../src/your-function.js";
 
 
 test("manually replace a string for a build file", async (t) => {
@@ -9,7 +9,7 @@ test("manually replace a string for a build file", async (t) => {
     const bundle = await rollup({
         input: "./tests/fixtures/hello.js",
         plugins: [
-            manipulate({
+            yourFunction({
                 fn: source => source.replace("hello world!", replacement)
             })
         ]

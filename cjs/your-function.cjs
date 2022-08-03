@@ -133,7 +133,7 @@ const showDiff = (filename, source, code, diffOption) => {
     console.log(colorette.gray("<<< END\n"));
 };
 
-const manipulate = (options={}) => {
+const yourFunction = (options={}) => {
 
     if (!options.fn) {
         throw Error("A function must be specified");
@@ -166,5 +166,5 @@ const manipulate = (options={}) => {
     };
 };
 
-exports.manipulate = manipulate;
+exports.yourFunction = yourFunction;
 //# sourceMappingURL=your-function.cjs.map

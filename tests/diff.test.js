@@ -1,6 +1,6 @@
 import test from "ava";
 import { rollup } from "rollup";
-import { manipulate } from "../src/manipulate.js";
+import { yourFunction } from "../src/your-function.js";
 
 
 test.before(t => {
@@ -20,7 +20,7 @@ test.serial("showDiff method (default)", async (t) => {
     await rollup({
         input: "./tests/fixtures/hello.js",
         plugins: [
-            manipulate({
+            yourFunction({
                 showDiff: null,
                 fn: source => source.replace("hello world!", replacement)
             })
@@ -46,7 +46,7 @@ test.serial("showDiff method (file)", async (t) => {
     await rollup({
         input: "./tests/fixtures/hello.js",
         plugins: [
-            manipulate({
+            yourFunction({
                 showDiff: "file",
                 fn: source => source.replace("hello world!", replacement)
             })

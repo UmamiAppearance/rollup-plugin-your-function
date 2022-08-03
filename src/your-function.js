@@ -2,7 +2,7 @@ import { createFilter } from "@rollup/pluginutils";
 import MagicString from "magic-string";
 import showDiff from "./diff.js";
 
-const manipulate = (options={}) => {
+const yourFunction = (options={}) => {
 
     if (!options.fn) {
         throw Error("A function must be specified");
@@ -35,4 +35,4 @@ const manipulate = (options={}) => {
     };
 }
 
-export { manipulate };
+export { yourFunction };
