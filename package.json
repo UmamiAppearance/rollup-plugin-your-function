@@ -4,13 +4,17 @@
   "description": "Manipulate",
   "main": "./cjs/manipulate.cjs",
   "module": "./src/manipulate.js",
+  "exports": {
+    "import": "./src/manipulate.js",
+    "require": "./cjs/manipulate.cjs"
+  },
   "type": "module",
   "directories": {
     "test": "test"
   },
   "scripts": {
     "build:cjs": "rollup ./src/manipulate.js --file ./cjs/manipulate.cjs --format cjs -m",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava"
   },
   "repository": {
     "type": "git",
