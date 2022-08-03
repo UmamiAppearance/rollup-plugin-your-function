@@ -1,3 +1,11 @@
+/**
+ * [rollup-plugin-your-function]{@link https://github.com/UmamiAppearance/rollup-plugin-yor-function}
+ *
+ * @version 0.1.1
+ * @author UmamiAppearance [mail@umamiappearance.eu]
+ * @license MIT
+ */
+
 import { createFilter } from "@rollup/pluginutils";
 import MagicString from "magic-string";
 import showDiff from "./diff.js";
