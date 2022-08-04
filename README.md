@@ -54,7 +54,7 @@ Then call `rollup` either via the [CLI](https://www.rollupjs.org/guide/en/#comma
 Type: `String` | `Array[...String]`  
 Default: `null`  
 
-A [minimatch pattern](https://github.com/isaacs/minimatch), or array of patterns, which specifies the files in the build the plugin should operate on. By default all files are targeted. On top of that each unit has the possibility to [target a specific file](#file-option-for-units).
+A [minimatch pattern](https://github.com/isaacs/minimatch), or array of patterns, which specifies the files in the build the plugin should operate on. By default all files are targeted.
 
 
 ### `exclude`  
