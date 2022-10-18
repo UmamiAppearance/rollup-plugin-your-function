@@ -18,7 +18,7 @@ const replacement = "saluton mondo!";
 test.serial("showDiff method (default)", async (t) => {
 
     await rollup({
-        input: "./tests/fixtures/hello.js",
+        input: "./test/fixtures/hello.js",
         plugins: [
             yourFunction({
                 showDiff: null,
@@ -44,7 +44,7 @@ test.serial("showDiff method (default)", async (t) => {
 test.serial("showDiff method (file)", async (t) => {
 
     await rollup({
-        input: "./tests/fixtures/hello.js",
+        input: "./test/fixtures/hello.js",
         plugins: [
             yourFunction({
                 showDiff: "file",

@@ -7,7 +7,7 @@ test("manually replace a string for a build file", async (t) => {
 
     const replacement = "saluton mondo!";
     const bundle = await rollup({
-        input: "./tests/fixtures/hello.js",
+        input: "./test/fixtures/hello.js",
         plugins: [
             yourFunction({
                 fn: source => source.replace("hello world!", replacement)
