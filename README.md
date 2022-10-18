@@ -68,7 +68,53 @@ A [minimatch pattern](https://github.com/isaacs/minimatch), or array of patterns
 Type: `Function`  
 Default: `null`  
 
-This is **your function**. Create a function (sync or async) that takes one argument (the source input) and returns the manipulated code as a string. And optionally a sourcemap as a second return value.
+This is **your function**. Create a function _(sync or async)_ that takes one argument (the source input), optionally a second parameter can be provided to have access to the [options](#options).  
+    
+_The manipulated code can be returned as a:_
+ - **string**
+ - an **array** with the code at index ``0`` and an optional sourcemap at index ``1``
+ - ``code`` and the optional ``map`` inside of an **object** (``{code: <code>, map: <map>}``).
+
+```js
+// Example A:
+fn: source => {
+    let code = source.replace("foo", "bar");
+    return code;
+}
+
+// Example B:
+fn: (source, options) => {
+    let code = source.replace("foo", "bar");
+    let map = mySourcemapGeneratingFN();
+
+    if (options.id === "my-file") {
+        console.log("my-file is currently getting processed");
+    }
+    
+    return [ code, map ];
+}
+
+// Example C:
+fn: source => {
+    let code = source.replace("foo", "bar");
+    let map = mySourcemapGeneratingFN();
+    return { code, map };
+}    
+```
+#### `options`
+For global plugins, only the ``id`` is available (which is the filename). Output plugins also have access to the following parameters:
+ - ``chunk``
+ - ``outputOptions``
+ - ``meta``  
+  
+More information on those parameters can be found at the [rollup documentation](https://github.com/rollup/rollup/blob/master/docs/05-plugin-development.md#renderchunk).
+
+
+### `output`
+Type: `Boolean`  
+Default: `false`  
+
+Set to ``true`` if you want **your function** to be passed to the output file.
 
 
 ### `showDiff`  
@@ -76,6 +122,7 @@ Type: `String`
 Default: `null`  
 
 A debugging method. If set to anything other than the string `"file"` a console output of [diff](https://github.com/kpdecker/jsdiff) is shown. It is modified a little and looks much like the default output of diff from the [GNU diffutils](https://www.gnu.org/software/diffutils/), with colors on top. If set to `"file"` the whole file with insertions and deletions is shown. Either way it only gets logged if there are any changes at all. 
+
 
 ## License
 
