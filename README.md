@@ -10,7 +10,7 @@ There are many plugins for rollup available. And many times the only thing you w
 
 Eventually you will find what you need, but now you'll have to figure out the particularities of the plugin. And you find yourself thinking: _"Why was that so complicated? I could have done this to a regular file in seconds!"_.  
 
-This is where **rollup-plugin-your-function** comes into play. The _only!_ thing it does, is to take a function, that you create by yourself. Your function needs to take one argument, that is the source file, and must return the output code. And that's it.
+This is where **rollup-plugin-your-function** comes into play. The _only!_ thing it does, is to take a function, that you create by yourself. Your function needs to take one argument, that is the source file, it must return the output code as the first parameter, optionally a sourcemap as a second. And that's it.
 
 
 ## Install
@@ -68,7 +68,7 @@ A [minimatch pattern](https://github.com/isaacs/minimatch), or array of patterns
 Type: `Function`  
 Default: `null`  
 
-This is **your function**. Create a function that takes one argument (the source input) and returns the manipulated code as a string. 
+This is **your function**. Create a function that takes one argument (the source input) and returns the manipulated code as a string. And optionally a sourcemap as a second return value.
 
 
 ### `showDiff`  

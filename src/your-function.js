@@ -1,7 +1,7 @@
 /**
  * [rollup-plugin-your-function]{@link https://github.com/UmamiAppearance/rollup-plugin-yor-function}
  *
- * @version 0.1.4
+ * @version 0.2.0
  * @author UmamiAppearance [mail@umamiappearance.eu]
  * @license MIT
  */
@@ -24,17 +24,19 @@ const yourFunction = (options={}) => {
         transform(source, id) {
             if (filter(id)) {
                 
-                const code = options.fn(source);
+                let [ code, map ] = [].concat(options.fn(source));
 
                 if ("showDiff" in options && code !== source) {
                     showDiff(id, source, code, options.showDiff);
                 }
                 
-                let map;
-
                 if (options.sourceMap !== false && options.sourcemap !== false) {
-                    const ms = new MagicString(code);
-                    map = ms.generateMap({ hires: true });
+                    if (!map) {
+                        const ms = new MagicString(code);
+                        map = ms.generateMap({ hires: true });
+                    }
+                } else {
+                    map = undefined;
                 }
 
                 return { code, map };
