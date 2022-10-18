@@ -68,7 +68,7 @@ A [minimatch pattern](https://github.com/isaacs/minimatch), or array of patterns
 Type: `Function`  
 Default: `null`  
 
-This is **your function**. Create a function that takes one argument (the source input) and returns the manipulated code as a string. And optionally a sourcemap as a second return value.
+This is **your function**. Create a function (sync or async) that takes one argument (the source input) and returns the manipulated code as a string. And optionally a sourcemap as a second return value.
 
 
 ### `showDiff`  

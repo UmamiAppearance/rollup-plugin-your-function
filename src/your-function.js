@@ -1,7 +1,7 @@
 /**
  * [rollup-plugin-your-function]{@link https://github.com/UmamiAppearance/rollup-plugin-yor-function}
  *
- * @version 0.2.0
+ * @version 0.3.0
  * @author UmamiAppearance [mail@umamiappearance.eu]
  * @license MIT
  */
@@ -21,10 +21,10 @@ const yourFunction = (options={}) => {
     return {
         name: "manipulate",
 
-        transform(source, id) {
+        async transform(source, id) {
             if (filter(id)) {
                 
-                let [ code, map ] = [].concat(options.fn(source));
+                let [ code, map ] = [].concat(await options.fn(source));
 
                 if ("showDiff" in options && code !== source) {
                     showDiff(id, source, code, options.showDiff);
