@@ -1,7 +1,7 @@
 /**
  * [rollup-plugin-your-function]{@link https://github.com/UmamiAppearance/rollup-plugin-yor-function}
  *
- * @version 0.3.0
+ * @version 0.4.0
  * @author UmamiAppearance [mail@umamiappearance.eu]
  * @license MIT
  */
@@ -10,39 +10,71 @@ import { createFilter } from "@rollup/pluginutils";
 import MagicString from "magic-string";
 import showDiff from "./diff.js";
 
-const yourFunction = (options={}) => {
 
-    if (!options.fn) {
-        throw Error("A function must be specified");
+const yourFunction = (settings={}) => {
+
+    if (!settings.fn) {
+        throw Error("A function must be provided.");
     }
 
-    const filter = createFilter(options.include, options.exclude);
-
-    return {
-        name: "manipulate",
-
-        async transform(source, id) {
-            if (filter(id)) {
-                
-                let [ code, map ] = [].concat(await options.fn(source));
-
-                if ("showDiff" in options && code !== source) {
-                    showDiff(id, source, code, options.showDiff);
-                }
-                
-                if (options.sourceMap !== false && options.sourcemap !== false) {
-                    if (!map) {
-                        const ms = new MagicString(code);
-                        map = ms.generateMap({ hires: true });
-                    }
-                } else {
-                    map = undefined;
-                }
-
-                return { code, map };
-            }
-        }
+    const filter = createFilter(settings.include, settings.exclude);
+    
+    const plugin = {
+        name: String(settings.name) || "your-function"
     };
+    
+    const fnWrap = async (source, options) => {
+
+        if (!filter(options.id)) return null;
+  
+        let [ code, map ] = [].concat(await settings.fn(source, options));
+        
+        if (typeof code === "object") {
+            map = code.map;
+            code = code.code;
+        }
+
+        if ("showDiff" in settings && code !== source) {
+            showDiff(options.id, source, code, settings.showDiff);
+        }
+        
+        if (settings.sourceMap !== false && settings.sourcemap !== false) {
+            if (!map) {
+                const ms = new MagicString(code);
+                map = ms.generateMap({ hires: true });
+            }
+        } else {
+            map = undefined;
+        }
+
+        return { code, map };
+    };
+
+
+    if (settings.output) { 
+        plugin.renderChunk = async (source, chunk, outputOptions, meta) => {
+            return await fnWrap(
+                source,
+                {
+                    id: chunk.facadeModuleId,
+                    chunk,
+                    outputOptions,
+                    meta
+                }
+            );
+        };
+    }
+
+    else {
+        plugin.transform = async (source, id) => {
+            return await fnWrap(
+                source,
+                { id }
+            );
+        };
+    }
+
+    return plugin;    
 };
 
 export { yourFunction };
