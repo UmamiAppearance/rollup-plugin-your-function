@@ -1,15 +1,9 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', { value: true });
-
 var pluginutils = require('@rollup/pluginutils');
 var MagicString = require('magic-string');
 var diff = require('diff');
 var colorette = require('colorette');
-
-function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
-
-var MagicString__default = /*#__PURE__*/_interopDefaultLegacy(MagicString);
 
 /**
  * Adds an angle bracket to each line of a
@@ -136,42 +130,76 @@ const showDiff = (filename, source, code, diffOption) => {
 /**
  * [rollup-plugin-your-function]{@link https://github.com/UmamiAppearance/rollup-plugin-yor-function}
  *
- * @version 0.1.3
+ * @version 0.4.1
  * @author UmamiAppearance [mail@umamiappearance.eu]
  * @license MIT
  */
 
-const yourFunction = (options={}) => {
 
-    if (!options.fn) {
-        throw Error("A function must be specified");
+const yourFunction = (settings={}) => {
+
+    if (!settings.fn) {
+        throw Error("A function must be provided.");
     }
 
-    const filter = pluginutils.createFilter(options.include, options.exclude);
-
-    return {
-        name: "manipulate",
-
-        transform(source, id) {
-            if (filter(id)) {
-                
-                const code = options.fn(source);
-
-                if ("showDiff" in options && code !== source) {
-                    showDiff(id, source, code, options.showDiff);
-                }
-                
-                let map;
-
-                if (options.sourceMap !== false && options.sourcemap !== false) {
-                    const ms = new MagicString__default["default"](code);
-                    map = ms.generateMap({ hires: true });
-                }
-
-                return { code, map };
-            }
-        }
+    const filter = pluginutils.createFilter(settings.include, settings.exclude);
+    
+    const plugin = {
+        name: String(settings.name) || "your-function"
     };
+    
+    const fnWrap = async (source, options) => {
+
+        if (!filter(options.id)) return null;
+  
+        let [ code, map ] = [].concat(await settings.fn(source, options));
+        
+        if (typeof code === "object") {
+            map = code.map;
+            code = code.code;
+        }
+
+        if ("showDiff" in settings && code !== source) {
+            showDiff(options.id, source, code, settings.showDiff);
+        }
+        
+        if (settings.sourceMap !== false && settings.sourcemap !== false) {
+            if (!map) {
+                const ms = new MagicString(code);
+                map = ms.generateMap({ hires: true });
+            }
+        } else {
+            map = undefined;
+        }
+
+        return { code, map };
+    };
+
+
+    if (settings.output) { 
+        plugin.renderChunk = async (source, chunk, outputOptions, meta) => {
+            return await fnWrap(
+                source,
+                {
+                    id: chunk.facadeModuleId,
+                    chunk,
+                    outputOptions,
+                    meta
+                }
+            );
+        };
+    }
+
+    else {
+        plugin.transform = async (source, id) => {
+            return await fnWrap(
+                source,
+                { id }
+            );
+        };
+    }
+
+    return plugin;    
 };
 
 exports.yourFunction = yourFunction;

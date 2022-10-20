@@ -1,7 +1,7 @@
 /**
  * [rollup-plugin-your-function]{@link https://github.com/UmamiAppearance/rollup-plugin-yor-function}
  *
- * @version 0.4.0
+ * @version 0.4.1
  * @author UmamiAppearance [mail@umamiappearance.eu]
  * @license MIT
  */
