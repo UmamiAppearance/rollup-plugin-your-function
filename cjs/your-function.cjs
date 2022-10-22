@@ -181,7 +181,7 @@ const yourFunction = (settings={}) => {
             return await fnWrap(
                 source,
                 {
-                    id: chunk.facadeModuleId,
+                    id: chunk.fileName,
                     chunk,
                     outputOptions,
                     meta
