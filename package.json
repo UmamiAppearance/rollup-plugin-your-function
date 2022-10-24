@@ -47,7 +47,7 @@
     "magic-string": "^0.26.7"
   },
   "devDependencies": {
-    "ava": "^4.3.3",
+    "ava": "^5.0.1",
     "eslint": "^8.25.0",
     "rollup": "^3.2.3"
   }
