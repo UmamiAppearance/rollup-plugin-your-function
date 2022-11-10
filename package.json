@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-your-function",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "Make your own function",
   "main": "./cjs/your-function.cjs",
   "module": "./src/your-function.js",
@@ -41,14 +41,14 @@
   },
   "homepage": "https://github.com/UmamiAppearance/rollup-plugin-your-function#readme",
   "dependencies": {
-    "@rollup/pluginutils": "^5.0.1",
+    "@rollup/pluginutils": "^5.0.2",
     "colorette": "^2.0.19",
     "diff": "^5.1.0",
     "magic-string": "^0.26.7"
   },
   "devDependencies": {
-    "ava": "^4.3.3",
-    "eslint": "^8.25.0",
-    "rollup": "^3.2.3"
+    "ava": "^5.0.1",
+    "eslint": "^8.27.0",
+    "rollup": "^3.2.5"
   }
 }

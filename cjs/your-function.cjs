@@ -130,7 +130,7 @@ const showDiff = (filename, source, code, diffOption) => {
 /**
  * [rollup-plugin-your-function]{@link https://github.com/UmamiAppearance/rollup-plugin-yor-function}
  *
- * @version 0.4.1
+ * @version 0.4.3
  * @author UmamiAppearance [mail@umamiappearance.eu]
  * @license MIT
  */
