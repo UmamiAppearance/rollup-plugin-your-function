@@ -39,7 +39,6 @@ const addAngles = (angle, txt) => {
  */
 const showDiff = (filename, source, code, diffOption) => {
     const fileMode = diffOption == "file";
-    console.log(code);
 
     console.log(colorette.bold(colorette.blue(
         `(plugin manipulate) diff for file '${filename}':`
@@ -130,7 +129,7 @@ const showDiff = (filename, source, code, diffOption) => {
 /**
  * [rollup-plugin-your-function]{@link https://github.com/UmamiAppearance/rollup-plugin-your-function}
  *
- * @version 0.4.6
+ * @version 0.4.7
  * @author UmamiAppearance [mail@umamiappearance.eu]
  * @license MIT
  */

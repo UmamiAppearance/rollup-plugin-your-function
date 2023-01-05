@@ -28,8 +28,6 @@ test.serial("showDiff method (default)", async (t) => {
     }); 
 
     
-    t.context.data.shift();
-
     t.truthy(
         t.context.data.filter(l => l[0].indexOf("(plugin manipulate) diff for file") > -1).length
     );
@@ -52,8 +50,6 @@ test.serial("showDiff method (file)", async (t) => {
             })
         ]
     }); 
-
-    t.context.data.shift();
 
     t.truthy(
         t.context.data.filter(l => l[0].indexOf("(plugin manipulate) diff for file") > -1).length
