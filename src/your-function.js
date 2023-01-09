@@ -1,7 +1,7 @@
 /**
  * [rollup-plugin-your-function]{@link https://github.com/UmamiAppearance/rollup-plugin-your-function}
  *
- * @version 0.4.7
+ * @version 0.4.8
  * @author UmamiAppearance [mail@umamiappearance.eu]
  * @license MIT
  */
@@ -20,9 +20,11 @@ const yourFunction = (settings={}) => {
     const filter = createFilter(settings.include, settings.exclude);
     
     const plugin = {
-        name: String(settings.name) || "your-function"
+        name: settings.name
+            ? String(settings.name)
+            : "your-function"
     };
-    
+
     const fnWrap = async (source, options) => {
 
         if (!filter(options.id)) return null;
@@ -35,7 +37,7 @@ const yourFunction = (settings={}) => {
         }
 
         if ("showDiff" in settings && code !== source) {
-            showDiff(options.id, source, code, settings.showDiff);
+            showDiff(options.id, source, code, settings.showDiff, plugin.name);
         }
         
         if (settings.sourceMap !== false && settings.sourcemap !== false) {

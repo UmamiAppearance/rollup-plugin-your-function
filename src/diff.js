@@ -34,11 +34,11 @@ const addAngles = (angle, txt) => {
  * @param {string} code - The modified code.
  * @param {string} [diffOption] - As passed by the user. If the value is 'file' also unchanged code is printed.  
  */
-const showDiff = (filename, source, code, diffOption) => {
+const showDiff = (filename, source, code, diffOption, pluginName) => {
     const fileMode = diffOption == "file";
 
     console.log(bold(blue(
-        `(plugin manipulate) diff for file '${filename}':`
+        `(plugin ${pluginName}) diff for file '${filename}':`
     )));
     
     console.log(gray("BEGIN >>>"));

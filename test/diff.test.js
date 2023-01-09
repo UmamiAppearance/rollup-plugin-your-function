@@ -29,7 +29,7 @@ test.serial("showDiff method (default)", async (t) => {
 
     
     t.truthy(
-        t.context.data.filter(l => l[0].indexOf("(plugin manipulate) diff for file") > -1).length
+        t.context.data.filter(l => l[0].indexOf("(plugin your-function) diff for file") > -1).length
     );
 
     t.truthy(
@@ -52,7 +52,7 @@ test.serial("showDiff method (file)", async (t) => {
     }); 
 
     t.truthy(
-        t.context.data.filter(l => l[0].indexOf("(plugin manipulate) diff for file") > -1).length
+        t.context.data.filter(l => l[0].indexOf("(plugin your-function) diff for file") > -1).length
     );
 
     t.truthy(
