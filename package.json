@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-your-function",
-  "version": "0.4.8",
+  "version": "0.4.9",
   "description": "Make your own function",
   "main": "./cjs/your-function.cjs",
   "module": "./src/your-function.js",
@@ -49,6 +49,6 @@
   "devDependencies": {
     "ava": "^5.1.0",
     "eslint": "^8.31.0",
-    "rollup": "^3.9.1"
+    "rollup": "^3.10.0"
   }
 }
