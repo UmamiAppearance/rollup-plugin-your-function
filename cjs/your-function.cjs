@@ -37,11 +37,11 @@ const addAngles = (angle, txt) => {
  * @param {string} code - The modified code.
  * @param {string} [diffOption] - As passed by the user. If the value is 'file' also unchanged code is printed.  
  */
-const showDiff = (filename, source, code, diffOption) => {
+const showDiff = (filename, source, code, diffOption, pluginName) => {
     const fileMode = diffOption == "file";
 
     console.log(colorette.bold(colorette.blue(
-        `(plugin manipulate) diff for file '${filename}':`
+        `(plugin ${pluginName}) diff for file '${filename}':`
     )));
     
     console.log(colorette.gray("BEGIN >>>"));
@@ -129,7 +129,7 @@ const showDiff = (filename, source, code, diffOption) => {
 /**
  * [rollup-plugin-your-function]{@link https://github.com/UmamiAppearance/rollup-plugin-your-function}
  *
- * @version 0.4.7
+ * @version 0.4.10
  * @author UmamiAppearance [mail@umamiappearance.eu]
  * @license MIT
  */
@@ -144,9 +144,11 @@ const yourFunction = (settings={}) => {
     const filter = pluginutils.createFilter(settings.include, settings.exclude);
     
     const plugin = {
-        name: String(settings.name) || "your-function"
+        name: settings.name
+            ? String(settings.name)
+            : "your-function"
     };
-    
+
     const fnWrap = async (source, options) => {
 
         if (!filter(options.id)) return null;
@@ -159,7 +161,7 @@ const yourFunction = (settings={}) => {
         }
 
         if ("showDiff" in settings && code !== source) {
-            showDiff(options.id, source, code, settings.showDiff);
+            showDiff(options.id, source, code, settings.showDiff, plugin.name);
         }
         
         if (settings.sourceMap !== false && settings.sourcemap !== false) {
