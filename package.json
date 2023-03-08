@@ -1,7 +1,7 @@
 {
   "name": "rollup-plugin-your-function",
-  "version": "0.4.10",
-  "description": "Make your own function",
+  "version": "0.4.11",
+  "description": "Provide a custom function as a rollup plugin.",
   "main": "./cjs/your-function.cjs",
   "module": "./src/your-function.js",
   "exports": {
@@ -48,7 +48,7 @@
   },
   "devDependencies": {
     "ava": "^5.2.0",
-    "eslint": "^8.34.0",
-    "rollup": "^3.17.2"
+    "eslint": "^8.35.0",
+    "rollup": "^3.18.0"
   }
 }
