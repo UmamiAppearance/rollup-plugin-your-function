@@ -45,7 +45,7 @@ test("manually replace a string for a build file (async)", async (t) => {
 });
 
 
-test("create an output plugin.", async (t) => {
+test("create an output plugin", async (t) => {
 
     const replacement = "saluton mondo!";
     const bundle = await rollup({

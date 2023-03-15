@@ -45,6 +45,27 @@ export default {
 }
 ```
 
+#### ...or use it as an output plugin
+```js
+import { yourFunction } from "rollup-plugin-your-function";
+
+const myPlugin = yourFunction({
+    output: true,
+    name: "myPlugin",
+    fn: async (source, options) => ...
+});
+
+export default {
+    input: "src/index.js",
+    output: {   
+        format: "es",
+        name: "myBuild",
+        file: "./dist/build.js",
+        plugins: [myPlugin()]
+    }
+}
+```
+
 Then call `rollup` either via the [CLI](https://www.rollupjs.org/guide/en/#command-line-reference) or the [API](https://www.rollupjs.org/guide/en/#javascript-api).
 
 
