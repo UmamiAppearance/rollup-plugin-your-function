@@ -2,15 +2,15 @@
 [![License](https://img.shields.io/github/license/UmamiAppearance/rollup-plugin-your-function?color=009911&style=for-the-badge)](./LICENSE)
 [![npm](https://img.shields.io/npm/v/rollup-plugin-your-function?color=009911&style=for-the-badge)](https://www.npmjs.com/package/rollup-plugin-your-function)
 
-A very simple rollup-plugin, which gives you the opportunity to manipulate your build files as you like. Dead simple. The last plugin you need (for simple tasks).
+A very simple rollup-plugin, which gives you the opportunity to manipulate your build files as you like. Dead simple. The last plugin you need (for small tasks).
 
 
 ## Idea
-There are many plugins for rollup available. And many times the only thing you would like to perform is a little change. Now the big research begins: _which plugin fits the best?_  
+There are many plugins for rollup available. And many times the only thing you would like to perform is a little change, just some regex magic, only a small string replacement, etc. Now the big research begins: _which plugin fits the best?_  
 
 Eventually you will find what you need, but now you'll have to figure out the particularities of the plugin. And you find yourself thinking: _"Why was that so complicated? I could have done this to a regular file in seconds!"_.  
 
-This is where **rollup-plugin-your-function** comes into play. The _only!_ thing it does, is to take a function, that you create by yourself. Your function needs to take one argument, that is the source file, it must return the output code as the first parameter, optionally a sourcemap as a second. And that's it.
+This is where **rollup-plugin-your-function** comes into play. The _only!_ thing it does, is to take a function, that you create by yourself. Your function needs to take one argument, that is the source file, it must return the output code as the first parameter, optionally a sourcemap as a second (otherwise it gets generated automatically and includes the performed changes). And that's it.  
 
 
 ## Install

@@ -1,8 +1,8 @@
 'use strict';
 
 var pluginutils = require('@rollup/pluginutils');
-var MagicString = require('magic-string');
 var diff = require('diff');
+var MagicString = require('magic-string');
 var colorette = require('colorette');
 
 /**
@@ -129,7 +129,7 @@ const showDiff = (filename, source, code, diffOption, pluginName) => {
 /**
  * [rollup-plugin-your-function]{@link https://github.com/UmamiAppearance/rollup-plugin-your-function}
  *
- * @version 0.4.12
+ * @version 0.5.0
  * @author UmamiAppearance [mail@umamiappearance.eu]
  * @license MIT
  */
@@ -166,7 +166,26 @@ const yourFunction = (settings={}) => {
         
         if (settings.sourceMap !== false && settings.sourcemap !== false) {
             if (!map) {
-                const ms = new MagicString(code);
+
+                // If no Source Map was provided generate one, by
+                // comparing character by character with the help
+                // of diff and using the output to apply the changes
+                // to the source with the help of magic string. 
+
+                const ms = new MagicString(source);
+                let i = 0;
+                
+                for (const diff$1 of diff.diffChars(source, code)) {
+
+                    if (diff$1.added) {
+                        ms.appendRight(i, diff$1.value);
+                    } else if (diff$1.removed) {
+                        ms.remove(i, i+=diff$1.count);
+                    } else {
+                        i += diff$1.count;
+                    }
+                }
+
                 map = ms.generateMap({ hires: true });
             }
         } else {

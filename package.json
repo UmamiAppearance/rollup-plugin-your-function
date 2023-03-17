@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-your-function",
-  "version": "0.4.12",
+  "version": "0.5.0",
   "description": "Provide a custom function as a rollup plugin.",
   "main": "./cjs/your-function.cjs",
   "module": "./src/your-function.js",
