@@ -2,7 +2,7 @@
 [![License](https://img.shields.io/github/license/UmamiAppearance/rollup-plugin-your-function?color=009911&style=for-the-badge)](./LICENSE)
 [![npm](https://img.shields.io/npm/v/rollup-plugin-your-function?color=009911&style=for-the-badge)](https://www.npmjs.com/package/rollup-plugin-your-function)
 
-A very simple rollup-plugin, which gives you the opportunity to manipulate your build files as you like. Dead simple. The last plugin you need (for simple tasks).
+A very simple rollup-plugin, which gives you the opportunity to manipulate your build files as you like. Dead simple. The last plugin you need (for small tasks).
 
 
 ## Idea
