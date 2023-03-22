@@ -32,7 +32,7 @@ test("manually replace a string for a build file (async)", async (t) => {
         plugins: [
             yourFunction({
                 fn: async source => {
-                    await sleep(100);
+                    await sleep(50);
                     return source.replace("hello world!", replacement);
                 }
             })
@@ -42,6 +42,28 @@ test("manually replace a string for a build file (async)", async (t) => {
     const { output } = await bundle.generate({ format: "es" });
 
     t.true(output[0].code.indexOf(replacement) > -1);
+});
+
+
+test("generate a source map", async (t) => {
+
+    const bundle = await rollup({
+        input: "./test/fixtures/hello.js",
+        plugins: [
+            yourFunction({
+                fn: source => {
+                    return { code: source.replaceAll("helloWorld", "hello") };
+                }
+            })
+        ]
+    });
+
+    const { output } = await bundle.generate({ format: "cjs", sourcemap: true });
+
+    t.truthy(output[0].map);
+    t.is(output[0].map.version, 3);
+    t.is(output[0].map.file, "hello.js");
+    t.is(output[0].map.mappings, ";;AAAK,MAAC,KAAU,GAAG,MAAM;AACzB,IAAI,OAAO,CAAC,GAAG,CAAC,cAAc,CAAC,CAAC;AAChC;;;;");
 });
 
 
