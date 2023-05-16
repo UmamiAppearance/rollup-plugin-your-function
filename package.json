@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-your-function",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Provide a custom function as a rollup plugin.",
   "main": "./cjs/your-function.cjs",
   "module": "./src/your-function.js",
@@ -18,7 +18,8 @@
     "build:cjs": "rollup ./src/your-function.js --file ./cjs/your-function.cjs --format cjs -m",
     "lint": "eslint ./src/*",
     "lint:fix": "eslint ./src/* --fix",
-    "test": "ava"
+    "test": "remembrance && ava",
+    "test:dev": "ava"
   },
   "repository": {
     "type": "git",
@@ -42,13 +43,14 @@
   "homepage": "https://github.com/UmamiAppearance/rollup-plugin-your-function#readme",
   "dependencies": {
     "@rollup/pluginutils": "^5.0.2",
-    "colorette": "^2.0.19",
+    "colorette": "^2.0.20",
     "diff": "^5.1.0",
     "magic-string": "^0.30.0"
   },
   "devDependencies": {
     "ava": "^5.2.0",
-    "eslint": "^8.36.0",
-    "rollup": "^3.20.0"
+    "eslint": "^8.40.0",
+    "remembrance": "^0.1.0",
+    "rollup": "^3.21.8"
   }
 }
